@@ -22,4 +22,6 @@ spring:
 jwt:
   base64-secret: 0PvKrBc1UE1CPKU211wrDLO5EZga8yiKx8CalxYChJkaqx/jSHsgkYDuM6Nxs9WBo4ICZb06G9XAeLh7mV4sKg==
   token-validity-in-seconds: 8640000
-
+cors:
+  client:
+    url: http://localhost:4000

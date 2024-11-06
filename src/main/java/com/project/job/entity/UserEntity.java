@@ -27,12 +27,18 @@ public class UserEntity {
     private String email;
     @Column(name = "password", nullable = false)
     private String password;
+    @Column(name = "address", nullable = false)
+    private String address;
+    @Column(name = "phone", nullable = false)
+    private String phone;
+    @Column(name = "age", nullable = false)
+    private int age;
     @Column(name = "is_active", nullable = false)
     private boolean isActive;
-    @Column(name = "role", nullable = false)
-    private String role;
-    @Column(name = "avatar")
-    private String avatar;
+    @Column(name = "role_id", nullable = false)
+    private Long roleId;
+    @Column(name = "refresh_token")
+    private String refreshToken;
     @Column(name = "created_at")
     private LocalDateTime createdAt;
     @Column(name = "created_by")

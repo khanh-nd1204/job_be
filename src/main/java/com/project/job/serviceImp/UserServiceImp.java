@@ -32,8 +32,11 @@ public class UserServiceImp implements UserService {
         user.setName(createUserDTO.getName());
         user.setEmail(createUserDTO.getEmail());
         user.setPassword(passwordEncoder.encode(createUserDTO.getPassword()));
+        user.setAddress(createUserDTO.getAddress());
+        user.setPhone(createUserDTO.getPhone());
+        user.setAge(createUserDTO.getAge());
         user.setActive(true);
-        user.setRole("USER");
+        user.setRoleId(3L);
         user.setCreatedAt(LocalDateTime.now());
         user.setUpdatedAt(LocalDateTime.now());
         return userRepo.save(user);
@@ -44,7 +47,9 @@ public class UserServiceImp implements UserService {
         UserEntity user = userRepo.findById(updateUserDTO.getId())
                 .orElseThrow(() -> new NotFoundException("User not found"));
         user.setName(updateUserDTO.getName());
-        user.setAvatar(updateUserDTO.getAvatar());
+        user.setAddress(updateUserDTO.getAddress());
+        user.setPhone(updateUserDTO.getPhone());
+        user.setAge(updateUserDTO.getAge());
         user.setUpdatedAt(LocalDateTime.now());
         return userRepo.save(user);
     }

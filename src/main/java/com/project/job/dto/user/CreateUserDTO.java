@@ -1,8 +1,6 @@
 package com.project.job.dto.user;
 
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -26,4 +24,16 @@ public class CreateUserDTO {
     @NotBlank(message = "Password is required")
     @Size(min = 6, max = 50, message = "Password must be between 6 and 50 characters")
     private String password;
+
+    @NotBlank(message = "Address is required")
+    @Size(max = 100, message = "Address must be less than 100 characters")
+    private String address;
+
+    @NotBlank(message = "Phone is required")
+    @Pattern(regexp = "\\d{10}", message = "Phone must be exactly 10 digits")
+    private String phone;
+
+    @NotNull(message = "Age is required")
+    @Min(value = 18, message = "Age must be at least 18")
+    private int age;
 }

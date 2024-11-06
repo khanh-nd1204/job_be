@@ -14,7 +14,7 @@ import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.stream.Collectors;
 
-import static com.project.job.config.SecurityConfiguration.JWT_ALGORITHM;
+import static com.project.job.config.SecurityConfig.JWT_ALGORITHM;
 
 @Service
 public class SecurityService {
