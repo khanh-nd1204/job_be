@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Collections;
 
 @Component("userDetailsService")
-public class UserDetailsImp implements UserDetailsService {
+public class UserDetailsServiceImp implements UserDetailsService {
 
     @Autowired
     private UserService userService;
@@ -29,9 +29,9 @@ public class UserDetailsImp implements UserDetailsService {
         if (!user.isActive()) {
             throw new UnauthorizedException("User account is inactive");
         }
-        return new User(
-                user.getName(), user.getPassword(),
-                Collections.singletonList(new SimpleGrantedAuthority("ROLE_USER"))
+        String role = user.getRoleId() == 1 ? "ROLE_ADMIN" : "ROLE_USER";
+        return new User(user.getEmail(), user.getPassword(),
+                Collections.singletonList(new SimpleGrantedAuthority(role))
         );
     }
 }

@@ -12,38 +12,28 @@ import org.springframework.stereotype.Component;
 import java.time.Instant;
 
 @Entity
-@Table(name = "users")
+@Table(name = "companies")
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Component
-public class UserEntity {
+public class CompanyEntity {
     @Id
     @Column(name = "id", nullable = false, unique = true)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "name", nullable = false)
     private String name;
-    @Column(name = "email", nullable = false, unique = true)
-    private String email;
-    @Column(name = "password", nullable = false)
-    private String password;
+    @Column(name = "description", nullable = false, length = 1000)
+    private String description;
     @Column(name = "address", nullable = false)
     private String address;
-    @Column(name = "phone", nullable = false, unique = true)
-    private String phone;
-    @Column(name = "age", nullable = false)
-    private int age;
-    @Column(name = "is_active", nullable = false)
-    private boolean isActive;
-    @Column(name = "role_id", nullable = false)
-    private Long roleId;
-    @Column(name = "refresh_token")
-    private String refreshToken;
+    @Column(name = "logo")
+    private String logo;
     @Column(name = "created_at")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm:ss dd/MM/yyyy", timezone = "GMT+7")
-    private Instant createdAt; // GMT+0
+    private Instant createdAt;
     @Column(name = "created_by")
     private String createdBy;
     @Column(name = "updated_at")

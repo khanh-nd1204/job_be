@@ -1,4 +1,4 @@
-package com.project.job.dto.auth;
+package com.project.job.dto;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

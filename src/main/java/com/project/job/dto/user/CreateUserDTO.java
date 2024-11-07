@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class CreateUserDTO {
     @NotBlank(message = "Name is required")
-    @Size(min = 2, max = 50, message = "Password must be between 2 and 50 characters")
+    @Size(max = 100, message = "Name must be less than 100 characters")
     private String name;
 
     @NotBlank(message = "Email is required")

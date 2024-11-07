@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestControllerAdvice
-public class GlobalResponseHandler {
+public class GlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ResponseObject> handleException(Exception e) {
@@ -46,8 +46,8 @@ public class GlobalResponseHandler {
         return new ResponseEntity<>(res, HttpStatus.NOT_FOUND);
     }
 
-    @ExceptionHandler(BadRequestException.class)
-    public ResponseEntity<ResponseObject> handleBadRequestException(BadRequestException e) {
+    @ExceptionHandler({BadRequestException.class, IllegalArgumentException.class})
+    public ResponseEntity<ResponseObject> handleBadRequestException(Exception e) {
         ResponseObject res = new ResponseObject(
                 HttpStatus.BAD_REQUEST.value(),
                 e.getMessage(),null,"Bad request"

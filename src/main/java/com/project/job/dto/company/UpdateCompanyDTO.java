@@ -1,6 +1,8 @@
-package com.project.job.dto.user;
+package com.project.job.dto.company;
 
-import jakarta.validation.constraints.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,23 +14,21 @@ import org.springframework.stereotype.Component;
 @NoArgsConstructor
 @AllArgsConstructor
 @Component
-public class UpdateUserDTO {
+public class UpdateCompanyDTO {
     @NotNull(message = "ID is required")
     private Long id;
 
     @NotBlank(message = "Name is required")
-    @Size(max = 100, message = "Name must be less than 100 characters")
+    @Size(max = 100, message = "Password must be less than 100 characters")
     private String name;
+
+    @NotBlank(message = "Description is required")
+    @Size(max = 1000, message = "Description must be less than 1000 characters")
+    private String description;
 
     @NotBlank(message = "Address is required")
     @Size(max = 100, message = "Address must be less than 100 characters")
     private String address;
 
-    @NotBlank(message = "Phone is required")
-    @Pattern(regexp = "\\d{10}", message = "Phone must be exactly 10 digits")
-    private String phone;
-
-    @NotNull(message = "Age is required")
-    @Min(value = 18, message = "Age must be at least 18")
-    private int age;
+    private String logo;
 }
